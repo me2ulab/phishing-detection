@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/font-awesome.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+</head>
+<body>
+	<nav class="navbar navbar-inverse bg-inverse navbar-toggleable">
+		<div class="container">
+			<a href="/" class="navbar-brand"><strong>Cybercrime</strong> Detection suite</a>
+			<button class="navbar-toggler">
+				<span class="navbar-toggler-icon" data-target="#navCollapse" data-toggle="collapse"></span>
+			</button>
+			<div id="navCollapse" class="collapse navbar-collapse">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+				<li class="nav-item"><a href="/phishing" class="nav-link" data-target="#signup" data-toggle="modal">Phishing</a></li>
+				<li class="nav-item"><a href="/ddos" class="nav-link">DDOS</a></li>
+				<li class="nav-item"><a href="/botnet" class="nav-link">Botnets</a></li>
+				<li class="nav-item"><a href="/loginForm" class="nav-link" data-target="#signup" data-toggle="modal">Admin Login</a></li>
+				<li class="nav-item"><a href="/registrationForm" class="nav-link">Register</a></li>
+
+			</ul>
+		</div>
+		</div>
+	</nav>
+	
+	<header id="home">
+		<div class="container">
+				<div class="row">
+				       {% if not loggedIn %}
+				  <div class="container">
+				    <div class="row">
+				    <div class="col-md-8 mx-auto mt-lg-5 text-lg-center py-lg-5">
+				          <span class="h1 text-primary pt-5 "> CyberCrime:<h2 class="text-white"> Online Suite for Web Protection</h2></span>
+				    <a class="link btn btn-warning" href="/loginForm">Sign In to Access this portal</a>
+				</div>
+		</div>
+	</div>
+	{%else%}
+	<div class="container">
+		<div class="row mt-lg-5 justify-content-center">
+			<div class="col-md-4">
+				<a href="/phishing" class="btn btn-primary btn-block"><h3>Phishing</h3></a></br>
+				<a href="/botnet" class="btn btn-danger btn-block"><h3>Botnet </h3></a><br>
+				<a href="/ddos" class="btn btn-primary btn-block"><h3>DDOS</h3></a>
+			</div>
+
+		</div>
+		<div class="float-right btn btn-danger text-white"><a href="/logout"> Sign Out</a></div>
+	</div>
+</div>
+</div>
+	</header>
+				<div class="modal" id="signup">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header text-center ">
+		       
+				<button class="close" data-dismiss="modal"><span>&times;</span></button>
+			</div>
+			<div class="modal-body bg-primary">
+				<div class="card  card-primary text-center">
+				
+						<h3>Login here</h3>
+						
+						<form>
+							<div class="form-group">
+								<input type="text" name="" class="form-control form-control-lg" placeholder="username">
+							</div>
+					
+							<div class="form-group">
+								<input type="Password" name="" class="form-control form-control-lg" placeholder="Password">
+							</div>
+							
+							<input type="submit" name="" value="Login" class="btn btn-info btn-block  ">
+						</form>
+					
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+{%endif%}
+<script  src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
+<script  src="{{url_for('static',filename='js/tether.min.js')}}"></script>
+<script  src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+</body>
+</html>
